@@ -4,8 +4,8 @@ import numpy as np
 import random
 
 
-def transfer_x_y(x, y, canvas_width_range, canvas_height_range, r=False):
-    W, H = auto.size() # convert x in [0, W] to [canvas_width_range] y in [0, H] to [0, canvas_height_range]
+def transfer_x_y(x, y, canvas_width_range, canvas_height_range, max_x, max_y, r=False):
+    W, H = max_x, max_y# convert x in [0, W] to [canvas_width_range] y in [0, H] to [0, canvas_height_range]
 
     c_w = canvas_width_range
     c_h = canvas_height_range
@@ -30,8 +30,8 @@ def transfer_x_y(x, y, canvas_width_range, canvas_height_range, r=False):
     b_h = c_h[0]
     a_h = (c_h[1] - c_h[0]) / H
 
-    new_x = int(round(a_w * y + b_w))
-    new_y = int(round(a_h * x + b_h))
+    new_x = int(round(a_w * x + b_w))
+    new_y = int(round(a_h * y + b_h))
 
     new_x = min(canvas_width_range[1], max(canvas_width_range[0], new_x))
     new_y = min(canvas_height_range[1], max(canvas_height_range[0], new_y))

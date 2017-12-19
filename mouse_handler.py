@@ -9,9 +9,9 @@ def move_and_click(position):
 
 
 def draw_by_sequence(coornidations):
-    threshold = 5
+    threshold = 10
 
-    auto.PAUSE = 0
+    auto.PAUSE = 0.03
 
     def distance(x1, y1, x2, y2): return euclidean((x1, y1), (x2, y2))
 
@@ -19,7 +19,7 @@ def draw_by_sequence(coornidations):
     move_and_click(start_position)
 
     for i in range(1, len(coornidations)):
-        if i % 10 != 0: continue
+        #if i % 10 != 0: continue
         dis = distance(*coornidations[i-1], *coornidations[i])
         print(dis)
         if dis < threshold:
